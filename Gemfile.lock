@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    dotenv (2.8.1)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -13,6 +14,7 @@ GEM
     pastel (0.8.0)
       tty-color (~> 0.5)
     racc (1.7.3)
+    rake (11.2.2)
     tty-color (0.6.0)
     tty-cursor (0.7.1)
     tty-prompt (0.23.1)
@@ -29,8 +31,10 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  dotenv (= 2.8.1)
   httpparty (= 0.2.0)
   nokogiri (= 1.15.5)
+  rake (= 11.2.2)
   tty-prompt (= 0.23.1)
 
 BUNDLED WITH
