@@ -24,6 +24,7 @@ def create_spec_file(spec_file_path, day)
   content = <<-EOL
 RSpec.describe "Test day ##{day}" do
   it "tests the correct solution for aoc day ##{day}" do
+    input = File.read("data/day#{day}_test.txt").lines
     # Your test goes here
   end
 end

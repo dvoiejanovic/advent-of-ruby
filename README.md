@@ -55,10 +55,12 @@ where you can choose to either scaffold the files or scrape the data (or both).
 
 <span class="text-red-600">**Important!**</span>
 <br> To be able to scrape the data, you need to provide a cookie. Cookie can be restored from developers tools in the network tab.
-Provide your cookie in ```scrapper.rb``` file.
+
+Create a .env file in the rooot directory.
+Provide your cookie in ```.env``` file.
 
 ```ruby
-  $cookie = "your_cookie_goes_here"
+  AOC_COOKIE="your_cookie_goes_here"
 ```
 
 

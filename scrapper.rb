@@ -1,8 +1,11 @@
 require 'httparty'
 require_relative 'lib/utils'
 require 'nokogiri'
+require 'dotenv'
 
-$cookie = "your_cookie_here"
+Dotenv.load
+
+$cookie = ENV['AOC_COOKIE']
 
 def fetch_response(type, day)
   url = type == "input" ? "https://adventofcode.com/2022/day/#{day}/input" : "https://adventofcode.com/2022/day/#{day}"
@@ -29,15 +32,16 @@ end
 def scrape_test_data(day)
   response = fetch_response("description", day)
   html = Nokogiri::HTML(response.body)
-  test_input = html.css('pre code')
+  test_input = html.css('.day-desc pre code')
 
-  spec_url = "spec/day#{day}_spec.rb"
-  if test_input.text && File.exist?(spec_url)
-    File.open(spec_url, "a") do |file|
-      file.puts("\n")
-      file.puts("=begin")
-      file.puts(test_input.text)
-      file.puts("=end")
+  test_file_url = "data/day#{day}_test.txt"
+  file = create_file(test_file_url, day)
+
+
+  if test_input.text
+    lines = test_input.text.split("\n");
+    lines.each do |line|
+      file.puts(line)
     end
   end
 end
