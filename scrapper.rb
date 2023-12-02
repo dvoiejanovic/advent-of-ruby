@@ -8,7 +8,7 @@ Dotenv.load
 $cookie = ENV['AOC_COOKIE']
 
 def fetch_response(type, day)
-  url = type == "input" ? "https://adventofcode.com/2022/day/#{day}/input" : "https://adventofcode.com/2022/day/#{day}"
+  url = type == "input" ? "https://adventofcode.com/2023/day/#{day}/input" : "https://adventofcode.com/2023/day/#{day}"
   HTTParty.get(url, {
     headers: {
       "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
@@ -19,7 +19,7 @@ end
 
 
 def scrape_data(day)
-  input_file_url = "data/day#{day}.txt"
+  input_file_url = "data/day#{day}_part1.txt"
   file = create_file(input_file_url, day)
 
   response = fetch_response("input", day)
@@ -34,7 +34,7 @@ def scrape_test_data(day)
   html = Nokogiri::HTML(response.body)
   test_input = html.css('.day-desc pre code')
 
-  test_file_url = "data/day#{day}_test.txt"
+  test_file_url = "data/day#{day}_test_part1.txt"
   file = create_file(test_file_url, day)
 
 
@@ -51,3 +51,4 @@ def scrape(day)
   scrape_data(day)
   scrape_test_data(day)
 end
+
