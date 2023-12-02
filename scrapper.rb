@@ -22,6 +22,7 @@ def scrape_data(day)
   input_file_url = "data/day#{day}_part1"
   file = create_file(input_file_url, "txt", day)
 
+
   response = fetch_response("input", day)
   lines = response.body.split("\n");
   lines.each do |line|
