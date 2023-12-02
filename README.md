@@ -50,8 +50,9 @@ Part 2 will only be scrapped if you have completed part 1 for that day
 
 ```js
      data
-     ├── day1_part1.txt
-     ├── day2_part2.txt
+     ├── day1.txt
+     ├── day1_test_part1.txt
+     ├── day2_test_part2.txt
      ├── ...
 ```
 
