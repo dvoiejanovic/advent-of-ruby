@@ -19,7 +19,7 @@ end
 
 
 def scrape_data(day)
-  input_file_url = "data/day#{day}_part1"
+  input_file_url = "data/day#{day}"
   file = create_file(input_file_url, "txt", day)
 
 
@@ -47,9 +47,11 @@ def scrape_test_data(day)
         file.puts(line)
       end
     end
-
-    puts "🔒 Puzzle input for part 2 is currently locked! To unlock it, solve the puzzle of part 1 and then scrape again. 🔒" if test_input_els.length == 1
-    puts " "
+    if test_input_els.length == 1
+      puts " "
+      puts "🔒 Puzzle input for part 2 is currently locked! To unlock it, solve the puzzle of part 1 and then scrape again. 🔒" if test_input_els.length == 1
+      puts " "
+    end
   end
 end
 
