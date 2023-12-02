@@ -1,7 +1,7 @@
 def create_file(file_path, format, day, part_idx = nil)
   path = part_idx ? [file_path, "_part", part_idx, ".", format].join : [file_path, ".", format].join
   file = File.open(path, "w")
-  puts "You have successfully created a file #{file_path} for day #{day}!"
+  puts "You have successfully created a file #{path} for day #{day}!"
   return file
 end
 

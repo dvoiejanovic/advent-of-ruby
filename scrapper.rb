@@ -8,7 +8,7 @@ Dotenv.load
 $cookie = ENV['AOC_COOKIE']
 
 def fetch_response(type, day)
-  url = type == "input" ? "https://adventofcode.com/2022/day/#{day}/input" : "https://adventofcode.com/2022/day/#{day}"
+  url = type == "input" ? "https://adventofcode.com/2023/day/#{day}/input" : "https://adventofcode.com/2023/day/#{day}"
   HTTParty.get(url, {
     headers: {
       "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
@@ -19,13 +19,8 @@ end
 
 
 def scrape_data(day)
-<<<<<<< Updated upstream
-  input_file_url = "data/day#{day}.txt"
-  file = create_file(input_file_url, day)
-=======
   input_file_url = "data/day#{day}_part1"
   file = create_file(input_file_url, "txt", day)
->>>>>>> Stashed changes
 
   response = fetch_response("input", day)
   lines = response.body.split("\n");
@@ -37,8 +32,8 @@ end
 def scrape_test_data(day)
   response = fetch_response("description", day)
   html = Nokogiri::HTML(response.body)
-  test_input_els = html.css('.day-desc pre code')
 
+  test_input_els = html.css('.day-desc pre code')
 
   test_input_els.each_with_index do |test_input, idx|
     part_number = idx + 1
@@ -62,3 +57,4 @@ def scrape(day)
   scrape_data(day)
   scrape_test_data(day)
 end
+

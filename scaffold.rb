@@ -6,13 +6,20 @@ def create_src_file(source_file_path, day)
 
   content = <<-EOL
 def data
-  file = File.open("data/day#{day}")
+  file = File.open("data/day#{day}.txt")
   file_data
 end
 
-def day_#{day}_solution
+def day_#{day}_first_part_solution
   # your solution goes here
 end
+
+def day_#{day}_second_part_solution
+  # your solution goes here
+end
+
+# puts "solution to first part is day_#{day}_first_part_solution(input)}"
+# puts "solution to second part is day_#{day}_second_part_solution(input)}"
   EOL
 
   file.puts(content)
@@ -22,12 +29,24 @@ def create_spec_file(spec_file_path, day)
   file = create_file(spec_file_path, "rb", day)
 
   content = <<-EOL
-RSpec.describe "Test day ##{day}" do
-  it "tests the correct solution for aoc day ##{day}" do
-    input = File.read("data/day#{day}_test.txt").lines
-    # Your test goes here
+require_relative '../src/day#{day}'
+
+RSpec.describe "Test day #{day}" do
+  it "tests the correct solution for aoc day #{day} part 1" do
+    input = File.read("data/day{day}_test_part{day}.txt")
+    test_solution = day_#{day}_first_part_solution(input)
+
+    expect(test_solution).to eq(0)
+  end
+
+  it "tests the correct solution for aoc day #{day} part #2" do
+    input = File.read("data/day#{day}_test_part2.txt")
+    test_solution = day_#{day}_second_part_solution(input)
+
+    expect(test_solution).to eq(0)
   end
 end
+
   EOL
 
   file.puts(content)
