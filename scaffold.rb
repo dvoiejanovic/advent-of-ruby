@@ -2,7 +2,7 @@ require 'tty-prompt'
 require_relative 'lib/utils'
 
 def create_src_file(source_file_path, day)
-  file = create_file(source_file_path, day)
+  file = create_file(source_file_path, "rb", day)
 
   content = <<-EOL
 def data
@@ -19,7 +19,7 @@ end
 end
 
 def create_spec_file(spec_file_path, day)
-  file = create_file(spec_file_path, day)
+  file = create_file(spec_file_path, "rb", day)
 
   content = <<-EOL
 RSpec.describe "Test day ##{day}" do
@@ -35,8 +35,8 @@ end
 
 def scaffold(day)
   create_directories(["spec", "src"])
-  source_file_path = "src/day#{day}.rb"
-  spec_file_path = "spec/day#{day}_spec.rb"
+  source_file_path = "src/day#{day}"
+  spec_file_path = "spec/day#{day}_spec"
 
   if File.exist?(source_file_path)
     should_override = prompt.yes?("File #{source_file_path} already exists. Do you want to override it?")

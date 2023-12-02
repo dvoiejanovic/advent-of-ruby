@@ -44,12 +44,14 @@ where you can choose to either scaffold the files or scrape the data (or both).
      ├── ...
 ```
 
-**Scrape** data command will scrape the data for the day you provided via the CLI. Data is stored within a .txt file in the *data* directory. On top of that, if you've already scaffolded the spec files, the provided sample data for that day will be appended to the spec file to help you write the specs more quickly.
+
+**Scrape** data command will scrape the data for the day you provided via the CLI. Data is stored within a .txt file in the *data* directory.
+Part 2 will only be scrapped if you have completed part 1 for that day
 
 ```js
      data
-     ├── day1.txt
-     ├── day2.txt
+     ├── day1_part1.txt
+     ├── day2_part2.txt
      ├── ...
 ```
 
