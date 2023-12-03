@@ -1,5 +1,6 @@
 *.gem
 *.rbc
+.DS_Store
 /.config
 /coverage/
 /InstalledFiles
@@ -11,7 +12,7 @@
 /tmp/
 
 # Used by dotenv library to load environment variables.
-# .env
-
-# Ignore Byebug command history file.
 .env
+
+
+
