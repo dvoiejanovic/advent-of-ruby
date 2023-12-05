@@ -6,7 +6,7 @@ def create_src_file(source_file_path, day)
 
   content = <<-EOL
 def data
-  File.open("data/day#{day}.txt")
+  File.read("data/day#{day}.txt")
 end
 
 def day_#{day}_first_part_solution
